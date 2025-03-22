@@ -1,4 +1,5 @@
-import 'package:first_app/widget_Screen.dart';
+import 'package:first_app/simple_form.dart';
+// import 'package:first_app/widget_Screen.dart';
 import 'package:flutter/material.dart';
 // import 'package:my_second/container.dart';
 // import 'package:my_second/row_column.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: WidgetScreen(),
+      home: SimpleForm(),
     );
   }
 }
