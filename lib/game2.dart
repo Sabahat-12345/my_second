@@ -1,10 +1,24 @@
+import 'dart:ffi' as ffi;
+import 'dart:math';
 import 'package:flutter/material.dart';
 
-class GameScreen extends StatelessWidget {
-  GameScreen({super.key});
+class Dice extends StatefulWidget {
+  const Dice({super.key});
 
   @override
-  int leftDiceNumber = 5;
+  State<Dice> createState() => _DiceState();
+}
+
+class _DiceState extends State<Dice> {
+  int leftDiceNumber = 1;
+  int rightDiceNumber = 1;
+
+  void changeDiceFace() {
+    setState(() {
+      leftDiceNumber = Random().nextInt(6) + 1;
+      rightDiceNumber = Random().nextInt(6) + 1;
+    });
+  }
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +27,7 @@ class GameScreen extends StatelessWidget {
         title: Text('Dice '),
         centerTitle: true,
         backgroundColor: Colors.red,
-        bottom: const PreferredSize(
+        bottom: PreferredSize(
           preferredSize: Size.fromHeight(1.0),
           child: Divider(
             height: 1,
@@ -30,7 +44,12 @@ class GameScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 child: TextButton(
                   onPressed: () {
-                    print('left button got pressed.');
+                    // setState(() {
+                    //   leftDiceNumber = Random().nextInt(6) + 1;
+                    //   rightDiceNumber = Random().nextInt(6) + 1;
+                    //   print('diceNumber = $leftDiceNumber');
+                    // });
+                    changeDiceFace();
                   },
                   style: TextButton.styleFrom(
                     foregroundColor: Colors.white,
@@ -46,14 +65,18 @@ class GameScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 child: TextButton(
                   onPressed: () {
-                    print('Right button got pressed.');
+                    // setState(() {
+                    //   leftDiceNumber = Random().nextInt(6) + 1;
+                    //   rightDiceNumber = Random().nextInt(6) + 1;
+                    // });
+                    changeDiceFace();
                   },
                   style: TextButton.styleFrom(
                     foregroundColor: Colors.white,
                     padding: EdgeInsets.zero,
                     overlayColor: Colors.transparent, // Removes hover effect
                   ),
-                  child: Image.asset('images/dice1.png'),
+                  child: Image.asset('images/dice$rightDiceNumber.png'),
                 ),
               ),
             ),
