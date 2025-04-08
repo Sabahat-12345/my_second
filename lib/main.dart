@@ -1,6 +1,7 @@
 // import 'package:first_app/card.dart';
 // import 'package:first_app/game.dart';
-import 'package:first_app/game2.dart';
+// import 'package:first_app/game2.dart';
+import 'package:first_app/magic_8_ball.dart';
 // import 'package:first_app/simple_form.dart';
 import 'package:first_app/simple_form.dart';
 // import 'package:first_app/widget_Screen.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Dice(),
+      home: BallPage(),
     );
   }
 }
